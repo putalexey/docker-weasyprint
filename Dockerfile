@@ -14,10 +14,10 @@ RUN apt-get -y update \
         fonts-font-awesome \
         libffi-dev \
         libgdk-pixbuf2.0-0 \
-        libpango1.0-0 \
         python-dev \
         python-lxml \
         shared-mime-info \
+    && apt-get -t testing install -y libpango1.0-0 \
     && apt-get -t testing install -y libcairo2=1.14.8-1 \
     && apt-get -y clean
 
