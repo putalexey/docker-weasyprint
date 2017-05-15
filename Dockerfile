@@ -11,6 +11,7 @@ RUN echo "deb http://ftp.debian.org/debian stretch main" > /etc/apt/sources.list
 # install all the dependencies except libcairo2 from jessie, then install libcairo2 from stretch
 RUN apt-get -y update \
     && apt-get install -y \
+        fonts-liberation \
         fonts-font-awesome \
         libffi-dev \
         libgdk-pixbuf2.0-0 \
