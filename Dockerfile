@@ -6,21 +6,23 @@ FROM python:3.5-onbuild
 # reconfigure Debian to allow installs from both stretch (testing) repo and jessie (stable) repo
 RUN echo 'APT::Default-Release "stable";' > /etc/apt/apt.conf
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.d/stable.list
-RUN echo "deb http://ftp.debian.org/debian stretch main" > /etc/apt/sources.list.d/testing.list
+RUN echo "deb http://ftp.debian.org/debian stretch main contrib" > /etc/apt/sources.list.d/testing.list
 
 # install all the dependencies except libcairo2 from jessie, then install libcairo2 from stretch
 RUN apt-get -y update \
     && apt-get install -y \
-        ttf-mscorefonts-installer \
         fonts-font-awesome \
         libffi-dev \
         libgdk-pixbuf2.0-0 \
         python-dev \
         python-lxml \
         shared-mime-info \
+    && apt-get -t testing install -y ttf-mscorefonts-installer \
     && apt-get -t testing install -y libpango1.0-0 \
     && apt-get -t testing install -y libcairo2=1.14.8-1 \
     && apt-get -y clean
+
+RUN 
 
 EXPOSE 5001
 
