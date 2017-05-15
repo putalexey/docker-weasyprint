@@ -22,8 +22,6 @@ RUN apt-get -y update \
     && apt-get -t testing install -y libcairo2=1.14.8-1 \
     && apt-get -y clean
 
-RUN 
-
 EXPOSE 5001
 
 CMD gunicorn --bind 0.0.0.0:5001 wsgi:app
