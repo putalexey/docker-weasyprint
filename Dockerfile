@@ -24,4 +24,7 @@ RUN apt-get -y update \
 
 EXPOSE 5001
 
-CMD gunicorn --bind 0.0.0.0:5001 wsgi:app
+ENV NUM_WORKERS=3
+ENV TIMEOUT=120
+
+CMD gunicorn --bind 0.0.0.0:5001 --timeout $TIMEOUT --workers $NUM_WORKERS  wsgi:app
