@@ -1,0 +1,8 @@
+__pycache__
+.git
+.editorconfig
+.gitignore
+.travis.yml
+LICENSE
+README.md
+test.py
