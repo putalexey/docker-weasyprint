@@ -2,14 +2,14 @@ sudo: required
 
 language: python
 python:
-  - "3.5"
+  - "3.6"
 
 services:
   - docker
 
 install:
-  - docker build -t weasyprint .
-  - docker run -d -p 5001:5001 --name weasyprint weasyprint
+  - docker build -t lgatica/weasyprint:latest -t lgatica/weasyprint:0.41 .
+  - docker run -d -p 5001:5001 --name weasyprint lgatica/weasyprint:latest
 
 script:
   - docker ps | grep weasyprint
@@ -18,3 +18,10 @@ script:
   - curl http://127.0.0.1:5001/health
   - python test.py
   - docker logs weasyprint
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push lgatica/weasyprint
+
+notifications:
+  email: false
