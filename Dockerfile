@@ -12,4 +12,4 @@ RUN apk add --no-cache libffi-dev gdk-pixbuf-dev py3-lxml shared-mime-info \
 
 EXPOSE 5001
 
-CMD gunicorn --bind 0.0.0.0:5001 --timeout $TIMEOUT --workers $NUM_WORKERS wsgi:app
+CMD gunicorn --bind 0.0.0.0:5001 --timeout $TIMEOUT --worker-class aiohttp.GunicornWebWorker --workers $NUM_WORKERS app:app
