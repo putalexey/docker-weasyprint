@@ -1,8 +1,6 @@
 # docker-weasyprint
 
-[![dockeri.co](http://dockeri.co/image/lgatica/weasyprint)](https://hub.docker.com/r/lgatica/weasyprint/)
-
-[![Build Status](https://travis-ci.org/lgaticaq/docker-weasyprint.svg?branch=master)](https://travis-ci.org/lgaticaq/docker-weasyprint)
+[![dockeri.co](http://dockeri.co/image/putalexey/weasyprint)](https://hub.docker.com/r/putalexey/weasyprint/)
 
 [Weasyprint](http://weasyprint.org/) as a microservice in a docker image.
 
