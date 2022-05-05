@@ -9,7 +9,7 @@
 Run the docker image, exposing port 5001
 
 ```
-docker run -d --name weasyprint -p 5001:5001 lgatica/weasyprint
+docker run -d --name weasyprint -p 5001:5001 putalexey/weasyprint
 ```
 
 A `POST` with json `{"data": "<h1>Hello world</h1>"}` to port `/pdf` on port 5001 with an html body with give a response containing a PDF. The filename may be set using a query parameter, e.g.:
