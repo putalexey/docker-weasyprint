@@ -8,8 +8,8 @@ services:
   - docker
 
 install:
-  - docker build -t lgatica/weasyprint:latest -t lgatica/weasyprint:0.41 .
-  - docker run -d -p 5001:5001 --name weasyprint lgatica/weasyprint:latest
+  - docker build -t putalexey/weasyprint:latest -t putalexey/weasyprint:59.0 .
+  - docker run -d -p 5001:5001 --name weasyprint putalexey/weasyprint:latest
 
 script:
   - docker ps | grep weasyprint
@@ -21,7 +21,7 @@ script:
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker push lgatica/weasyprint
+  - docker push -a putalexey/weasyprint
 
 notifications:
   email: false
