@@ -1,0 +1,7 @@
+services:
+  weasyprint:
+    image: putalexey/weasyprint:latest
+    environment:
+      REQUEST_MAX_SIZE: "10M"
+    ports:
+      - ${HTTP_PORT:-5001}:5001
